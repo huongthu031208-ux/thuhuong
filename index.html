@@ -1,174 +1,154 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Tin học 12 - Bài 23</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Du lịch Vịnh Hạ Long</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f0f4f8;}
 
-        body {
-            background: linear-gradient(120deg, #74ebd5, #acb6e5);
-        }
+header{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1528127269322-539801943592') center/cover;
+    display:flex;align-items:center;justify-content:center;
+    color:white;text-align:center;
+}
+header h1{font-size:50px;background:rgba(0,0,0,0.5);padding:20px;border-radius:10px;}
 
-        header {
-            text-align: center;
-            padding: 40px;
-            color: white;
-        }
+nav{background:#0077b6;text-align:center;padding:10px;}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
 
-        header h1 {
-            font-size: 40px;
-        }
+.container{max-width:1100px;margin:auto;padding:20px;}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background: rgba(0,0,0,0.2);
-            padding: 10px;
-            backdrop-filter: blur(10px);
-        }
+.card{
+    background:white;margin-bottom:20px;padding:20px;
+    border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
+/* SLIDER */
+.slider{position:relative;overflow:hidden;border-radius:15px;}
+.slides{display:flex;transition:0.5s;}
+.slides img{width:100%;}
 
-        nav a:hover {
-            background: white;
-            color: #333;
-        }
+button.prev, button.next{
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);color:white;border:none;
+    padding:10px;cursor:pointer;
+}
+.prev{left:10px;} .next{right:10px;}
 
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+/* QUIZ */
+.quiz button{
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    background:#0077b6;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+.quiz button:hover{background:#023e8a;}
 
-        .card {
-            background: rgba(255,255,255,0.9);
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        h2 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        ul li {
-            margin-left: 20px;
-            margin-bottom: 5px;
-        }
-
-        pre {
-            background: #1e1e1e;
-            color: #00ffcc;
-            padding: 15px;
-            border-radius: 10px;
-            overflow-x: auto;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            color: white;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #2c7be5;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #1a5fb4;
-        }
-    </style>
+footer{
+    text-align:center;padding:15px;
+    background:#0077b6;color:white;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>💻 Tin học 12 - Bài 23</h1>
-    <p>Ngôn ngữ truy vấn SQL</p>
+    <h1>🌊 Du lịch Vịnh Hạ Long</h1>
 </header>
 
 <nav>
-    <a href="#gioithieu">Giới thiệu</a>
-    <a href="#cuphap">Cú pháp</a>
-    <a href="#vidu">Ví dụ</a>
+    <a href="#slider">Ảnh</a>
+    <a href="#video">Video</a>
+    <a href="#map">Bản đồ</a>
+    <a href="#quiz">Quiz</a>
 </nav>
 
 <div class="container">
 
-    <div class="card" id="gioithieu">
-        <h2>📘 Giới thiệu</h2>
-        <p>
-            SQL (Structured Query Language) là ngôn ngữ dùng để quản lý và truy vấn
-            cơ sở dữ liệu quan hệ. Đây là công cụ quan trọng trong việc lưu trữ
-            và xử lý dữ liệu.
-        </p>
-        <a class="btn" href="#cuphap">Xem tiếp →</a>
+<!-- SLIDER -->
+<div class="card" id="slider">
+<h2>📸 Ảnh Vịnh Hạ Long</h2>
+<div class="slider">
+    <div class="slides" id="slides">
+        <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
     </div>
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+</div>
+</div>
 
-    <div class="card" id="cuphap">
-        <h2>⚙️ Câu lệnh cơ bản</h2>
-        <ul>
-            <li><b>SELECT</b>: Lấy dữ liệu</li>
-            <li><b>INSERT</b>: Thêm dữ liệu</li>
-            <li><b>UPDATE</b>: Cập nhật dữ liệu</li>
-            <li><b>DELETE</b>: Xóa dữ liệu</li>
-        </ul>
-    </div>
+<!-- VIDEO -->
+<div class="card" id="video">
+<h2>🎬 Video Vịnh Hạ Long</h2>
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/qREKP9oijWI"
+frameborder="0" allowfullscreen></iframe>
+</div>
 
-    <div class="card" id="vidu">
-        <h2>💡 Ví dụ SQL</h2>
-        <pre>
-SELECT * FROM HocSinh;
+<!-- MAP -->
+<div class="card" id="map">
+<h2>🗺️ Bản đồ</h2>
+<iframe 
+width="100%" height="400" 
+src="https://www.google.com/maps?q=Ha+Long+Bay&output=embed">
+</iframe>
+</div>
 
-INSERT INTO HocSinh (MaHS, TenHS)
-VALUES ('HS01', 'Nguyen Van A');
+<!-- QUIZ -->
+<div class="card quiz" id="quiz">
+<h2>🧠 Quiz nhanh</h2>
+<p>Vịnh Hạ Long thuộc tỉnh nào?</p>
+<button onclick="checkAnswer('A')">A. Quảng Ninh</button><br>
+<button onclick="checkAnswer('B')">B. Đà Nẵng</button><br>
+<button onclick="checkAnswer('C')">C. Khánh Hòa</button>
 
-UPDATE HocSinh
-SET TenHS = 'Tran Van B'
-WHERE MaHS = 'HS01';
-
-DELETE FROM HocSinh
-WHERE MaHS = 'HS01';
-        </pre>
-    </div>
+<p id="result"></p>
+</div>
 
 </div>
 
 <footer>
-    <p>✨ Made with GitHub Pages | Tin học 12</p>
+<p>✨ Khám phá Vịnh Hạ Long</p>
 </footer>
+
+<script>
+let index = 0;
+
+function showSlide(i){
+    const slides = document.getElementById("slides");
+    const total = slides.children.length;
+    if(i >= total) index = 0;
+    else if(i < 0) index = total - 1;
+    else index = i;
+    slides.style.transform = "translateX(" + (-index * 100) + "%)";
+}
+
+function nextSlide(){ showSlide(index + 1); }
+function prevSlide(){ showSlide(index - 1); }
+
+function checkAnswer(ans){
+    let result = document.getElementById("result");
+    if(ans === 'A'){
+        result.innerHTML = "✅ Chính xác!";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "❌ Sai rồi!";
+        result.style.color = "red";
+    }
+}
+</script>
 
 </body>
 </html>
