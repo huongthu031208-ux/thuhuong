@@ -2,152 +2,341 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Du lịch Vịnh Hạ Long</title>
+<title>Vịnh Hạ Long - Travel Pro</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#f0f4f8;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
+body{
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+    background:#f5f7fa;
+}
+
+/* HERO VIDEO */
 header{
     height:100vh;
-    background:url('https://images.unsplash.com/photo-1528127269322-539801943592') center/cover;
-    display:flex;align-items:center;justify-content:center;
-    color:white;text-align:center;
+    position:relative;
+    overflow:hidden;
 }
-header h1{font-size:50px;background:rgba(0,0,0,0.5);padding:20px;border-radius:10px;}
 
-nav{background:#0077b6;text-align:center;padding:10px;}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
+header video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-.container{max-width:1100px;margin:auto;padding:20px;}
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
 
+.hero-text{
+    position:absolute;
+    top:40%;
+    width:100%;
+    text-align:center;
+    color:white;
+}
+
+.hero-text h1{
+    font-size:70px;
+    font-family:'Playfair Display',serif;
+    animation:fadeIn 2s ease-in-out;
+}
+
+.hero-text p{
+    font-size:20px;
+    margin-top:10px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* NAV */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ffb703;
+    color:black;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#fb8500;
+}
+
+/* SECTION */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.section{
+    margin-bottom:50px;
+}
+
+/* CARD */
 .card{
-    background:white;margin-bottom:20px;padding:20px;
-    border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom:20px;
 }
 
 /* SLIDER */
-.slider{position:relative;overflow:hidden;border-radius:15px;}
-.slides{display:flex;transition:0.5s;}
-.slides img{width:100%;}
-
-button.prev, button.next{
-    position:absolute;top:50%;transform:translateY(-50%);
-    background:rgba(0,0,0,0.5);color:white;border:none;
-    padding:10px;cursor:pointer;
+.slider{
+    overflow:hidden;
+    border-radius:15px;
+    position:relative;
 }
-.prev{left:10px;} .next{right:10px;}
 
-/* QUIZ */
-.quiz button{
-    margin-top:10px;
-    padding:10px;
-    border:none;
-    background:#0077b6;
+.slides{
+    display:flex;
+    transition:0.6s ease;
+}
+
+.slides img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+}
+
+.slider button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);
     color:white;
-    border-radius:5px;
+    border:none;
+    padding:10px;
     cursor:pointer;
 }
-.quiz button:hover{background:#023e8a;}
 
+.prev{left:10px;}
+.next{right:10px;}
+
+/* TOUR BOX */
+.tour{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.tour-card{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* FORM */
+form input, form select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+form button{
+    width:100%;
+    padding:12px;
+    background:#0077b6;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* FOOTER */
 footer{
-    text-align:center;padding:15px;
-    background:#0077b6;color:white;
+    text-align:center;
+    padding:20px;
+    background:#111;
+    color:white;
 }
 </style>
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+}
+p{
+    font-family: 'Poppins', sans-serif;
+}
+</style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <header>
-    <h1>🌊 Du lịch Vịnh Hạ Long</h1>
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-ha-long-bay-1574/1080p.mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="hero-text">
+<h1>Vịnh Hạ Long</h1>
+<p>Khám phá kỳ quan thiên nhiên thế giới</p>
+<a href="#book" class="btn">Đặt tour ngay</a>
+</div>
 </header>
 
 <nav>
-    <a href="#slider">Ảnh</a>
-    <a href="#video">Video</a>
-    <a href="#map">Bản đồ</a>
-    <a href="#quiz">Quiz</a>
+<a href="#about">Giới thiệu</a>
+<a href="#gallery">Hình ảnh</a>
+<a href="#tour">Tour</a>
+<a href="#book">Đặt tour</a>
 </nav>
 
 <div class="container">
 
-<!-- SLIDER -->
-<div class="card" id="slider">
-<h2>📸 Ảnh Vịnh Hạ Long</h2>
-<div class="slider">
-    <div class="slides" id="slides">
-        <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-    </div>
-    <button class="prev" onclick="prevSlide()">❮</button>
-    <button class="next" onclick="nextSlide()">❯</button>
+<!-- ABOUT -->
+<div class="section" id="about">
+<div class="card">
+<h2>📍 Giới thiệu</h2>
+<p>
+Vịnh Hạ Long là di sản thiên nhiên thế giới với hàng nghìn đảo đá vôi kỳ vĩ,
+là điểm đến du lịch nổi tiếng nhất Việt Nam.
+</p>
 </div>
 </div>
 
-<!-- VIDEO -->
-<div class="card" id="video">
-<h2>🎬 Video Vịnh Hạ Long</h2>
-<iframe width="100%" height="400"
-src="https://www.youtube.com/embed/qREKP9oijWI"
-frameborder="0" allowfullscreen></iframe>
+<!-- SLIDER -->
+<div class="section" id="gallery">
+<div class="card">
+<h2>📸 Hình ảnh nổi bật</h2>
+
+<div class="slider">
+<div class="slides" id="slides">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZc6vjDYOv3REvdVe_uWyudsuVxefkcgoNw&s">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Rra2RITnt_KAQoxwU6vVQsdIgl61NExaBw&s">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7W2eG5f6eYcjSMDMx8YrWSTosFhUCXbduQg&s">
+</div>
+<button class="prev" onclick="move(-1)">❮</button>
+<button class="next" onclick="move(1)">❯</button>
+</div>
+
+</div>
+</div>
+
+<!-- TOUR -->
+<div class="section" id="tour">
+<div class="card">
+<h2>🏝️ Tour nổi bật</h2>
+
+<div class="tour">
+<div class="tour-card">
+<h3>Tour 1 ngày</h3>
+<p>Khám phá nhanh Vịnh Hạ Long</p>
+</div>
+
+<div class="tour-card">
+<h3>Tour 2 ngày 1 đêm</h3>
+<p>Ngủ du thuyền sang trọng</p>
+</div>
+
+<div class="tour-card">
+<h3>Tour cao cấp</h3>
+<p>Trải nghiệm 5 sao</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- BOOKING -->
+<div class="section" id="book">
+<div class="card">
+<h2>📞 Đặt tour</h2>
+
+<form onsubmit="event.preventDefault();alert('Đặt tour thành công!')">
+<input type="text" placeholder="Họ tên" required>
+<input type="number" placeholder="Số người" required>
+<select>
+<option>Chọn tour</option>
+<option>1 ngày</option>
+<option>2 ngày 1 đêm</option>
+<option>cao cấp</option>
+</select>
+<button>Gửi yêu cầu</button>
+</form>
+
+</div>
 </div>
 
 <!-- MAP -->
-<div class="card" id="map">
+<div class="section">
+<div class="card">
 <h2>🗺️ Bản đồ</h2>
-<iframe 
-width="100%" height="400" 
-src="https://www.google.com/maps?q=Ha+Long+Bay&output=embed">
-</iframe>
+<iframe width="100%" height="400"
+src="https://www.google.com/maps?q=Ha+Long+Bay&output=embed"></iframe>
 </div>
-
-<!-- QUIZ -->
-<div class="card quiz" id="quiz">
-<h2>🧠 Quiz nhanh</h2>
-<p>Vịnh Hạ Long thuộc tỉnh nào?</p>
-<button onclick="checkAnswer('A')">A. Quảng Ninh</button><br>
-<button onclick="checkAnswer('B')">B. Đà Nẵng</button><br>
-<button onclick="checkAnswer('C')">C. Khánh Hòa</button>
-
-<p id="result"></p>
 </div>
 
 </div>
 
 <footer>
-<p>✨ Khám phá Vịnh Hạ Long</p>
+<p>✨ Travel Pro - Vịnh Hạ Long</p>
 </footer>
 
 <script>
+
 let index = 0;
 
-function showSlide(i){
-    const slides = document.getElementById("slides");
-    const total = slides.children.length;
-    if(i >= total) index = 0;
-    else if(i < 0) index = total - 1;
-    else index = i;
-    slides.style.transform = "translateX(" + (-index * 100) + "%)";
+function show(){
+    const s = document.getElementById("slides");
+    const total = s.children.length;
+    s.style.transform = "translateX(" + (-index * 100) + "%)";
 }
 
-function nextSlide(){ showSlide(index + 1); }
-function prevSlide(){ showSlide(index - 1); }
-
-function checkAnswer(ans){
-    let result = document.getElementById("result");
-    if(ans === 'A'){
-        result.innerHTML = "✅ Chính xác!";
-        result.style.color = "green";
-    } else {
-        result.innerHTML = "❌ Sai rồi!";
-        result.style.color = "red";
-    }
+function move(dir){
+    const s = document.getElementById("slides");
+    const total = s.children.length;
+    index += dir;
+    if(index >= total) index = 0;
+    if(index < 0) index = total - 1;
+    show();
 }
+
+/* AUTO SLIDE */
+setInterval(()=>{
+    move(1);
+},4000);
+
 </script>
 
 </body>
